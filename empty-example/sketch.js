@@ -99,11 +99,11 @@ function keyPressed(){
     updateCanvas();
 
     if(isGameOver()){
-      console.log("GAME OVER");
+      drawFinishPage("GAME OVER");
     }
 
     if(isGameWon()){
-      console.log("GAME WON");
+      drawFinishPage("GAME WON");
     }
   }
 }

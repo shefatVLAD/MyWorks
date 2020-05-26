@@ -11,6 +11,14 @@ function drawInitialPage(){
   text("6X6", 440, 350);
 }
 
+function drawFinishPage(result){
+  background("#FFA07A");
+  textAlign(CENTER, CENTER);
+  text(result, 300, 300);
+  textSize(20);
+  text("Нажмите F5 для перезапуска", 300, 350);
+}
+
 function updateCanvas() {
  background(255);
  drawGrid(gridSize);
