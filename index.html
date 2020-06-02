@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style> body{padding:0; margin:0;} </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2048 GAME</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="../p5.js"></script>
+  <script src="sketch.js"></script>
+  <script src="config.js"></script>
+  <script src="drawing.js"></script>
+  <script src="musicControl.js"></script>
+  <script src="downAndUploads.js"></script>
+  <script src="gridOperations.js"></script>
+</head>
+
+<body>
+  <p align="center" style="font-size:32pt" id="score"></p>
+
+  <audio id="audio" src="./Kinari - Wow Wow.mp3"></audio>
+  <audio id="audio" src="./The Prodigy - You Will Be Under My Wheels.mp3"></audio>
+  <audio id="audio" src="./Sandra - Ich bin ein Lederhosengirl.mp3"></audio>
+
+
+<div id="controls" align="center">
+    <div class="audio-track"><div class="time"></div></div>
+    <button class="play"></button>
+    <button class="pause"></button>
+    <button class="prev"></button>
+    <button class="next"></button>
+</div>
+<style>
+  #upload-container div {
+  z-index: 10;
+  }
+
+  #upload-container input[type=file] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  position: absolute;
+  z-index: -10;
+  }
+
+  #upload {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50px;
+    height: 50px;
+    background-color: #e0f2f7;
+    font-family: 'Segoe UI';
+    color: #1f3c44;
+    background: url(../empty-example/012-upload.png) 100% 100% no-repeat;
+    background-size: cover;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  }
+
+  .fd {
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: rgb(212,75,56); /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+  }
+  .play {
+    height: 50px;
+    width: 50px;
+    background: url(../empty-example/013-play.png) 100% 100% no-repeat;
+    background-size: cover;
+  }
+  .pause {
+    height: 50px;
+    width: 50px;
+    background: url(../empty-example/021-pause.png) 100% 100% no-repeat;
+    background-size: cover;
+  }
+  .prev {
+    height: 50px;
+    width: 50px;
+    background: url(../empty-example/011-back.png) 100% 100% no-repeat;
+    background-size: cover;
+  }
+  .next {
+    height: 50px;
+    width: 50px;
+    background: url(../empty-example/001-next.png) 100% 100% no-repeat;
+    background-size: cover;
+  }
+  .download{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #e0f2f7;
+    font-family: 'Segoe UI';
+    color: #1f3c44;
+    background: url(../empty-example/022-download.png) 100% 100% no-repeat;
+    background-size: cover;
+  }
+  .row {
+    overflow: hidden;
+  }
+
+  .row > div {
+    float: left;
+    align: center;
+    width: 50%;
+  }
+
+</style>
+<div align="center" id='myContainer'></div>
+  <div class="row" align = "center">
+    <div>
+      <button class="download"></button>
+  </div>
+  <div>
+    <form id="upload-container">
+       <input id="file" type="file" onchange="readFile(document.getElementById('file'))" accept=".txt">
+       <label id ="upload" for="file"></label>
+    </form>
+  </div>
+  </div>
+
+</body>
+
+</html>
